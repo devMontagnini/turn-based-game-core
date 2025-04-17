@@ -1,0 +1,24 @@
+{
+  "name": "turn-based-game-core",
+  "version": "1.0.0",
+  "description": "Turn based game core",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devMontagnini/turn-based-game-core.git"
+  },
+  "keywords": [],
+  "author": "André Montagnini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devMontagnini/turn-based-game-core/issues"
+  },
+  "homepage": "https://github.com/devMontagnini/turn-based-game-core#readme",
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3"
+  }
+}

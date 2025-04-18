@@ -1,4 +1,6 @@
 export enum ExceptionCodes {
+  InternalErrorException = 'InternalErrorException',
+
   MatchCannotStartBecauseIsWaitingForTeamsToEnter = 'MatchCannotStartBecauseIsWaitingForTeamsToEnter',
   MatchCannotStartBecauseHaveTeamsNotReady = 'MatchCannotStartBecauseHaveTeamsNotReady',
   MatchCannotBeCreatedBecauseHaveInvalidRules = 'MatchCannotBeCreatedBecauseHaveInvalidRules',

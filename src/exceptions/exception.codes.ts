@@ -1,0 +1,23 @@
+export enum ExceptionCodes {
+  MatchCannotStartBecauseIsWaitingForTeamsToEnter = 'MatchCannotStartBecauseIsWaitingForTeamsToEnter',
+  MatchCannotStartBecauseHaveTeamsNotReady = 'MatchCannotStartBecauseHaveTeamsNotReady',
+  MatchCannotBeCreatedBecauseHaveInvalidRules = 'MatchCannotBeCreatedBecauseHaveInvalidRules',
+  MatchCannotBeCreatedBecauseHaveNameWithSpecialCharacters = 'MatchCannotBeCreatedBecauseHaveNameWithSpecialCharacters',
+  MatchCannotBeCreatedBecauseItsNameIsAlreadyInUse = 'MatchCannotBeCreatedBecauseItsNameIsAlreadyInUse',
+  MatchCannotBeCreatedBecauseHaveForbiddenName = 'MatchCannotBeCreatedBecauseHaveForbiddenName',
+  
+  TeamCannotEnterOnMatchBecauseMatchIsNotWaitingNewTeams = 'TeamCannotEnterOnMatchBecauseMatchIsNotWaitingNewTeams',
+  TeamCannotEnterOnMatchBecauseItsNameIsAlreadyInUse = 'TeamCannotEnterOnMatchBecauseItsNameIsAlreadyInUse',
+  TeamCannotEnterOnMatchBecauseHaveNameWithSpecialCharacters = 'TeamCannotEnterOnMatchBecauseHaveNameWithSpecialCharacters',
+  TeamCannotEnterOnMatchBecauseHaveForbiddenName = 'TeamCannotEnterOnMatchBecauseHaveForbiddenName',
+  TeamCannotBeReadyBecauseDontHaveEnoughPlayers = 'TeamCannotBeReadyBecauseDontHaveEnoughPlayers',
+  TeamCannotBeReadyBecauseHavePlayersWithoutDefinedRole = 'TeamCannotBeReadyBecauseHavePlayersWithoutDefinedRole',
+
+  PlayerCannotEnterOnMatchBecauseMatchIsFull = 'PlayerCannotEnterOnMatchBecauseMatchIsFull',
+  PlayerCannotEnterOnMatchBecauseHaveNameWithSpecialCharacters = 'PlayerCannotEnterOnMatchBecauseHaveNameWithSpecialCharacters',
+  PlayerCannotEnterOnMatchBecauseHisNameIsAlreadyInUse = 'PlayerCannotEnterOnMatchBecauseHisNameIsAlreadyInUse',
+  PlayerCannotEnterOnMatchBecauseHasForbiddenName = 'PlayerCannotEnterOnMatchBecauseHasForbiddenName',
+  PlayerCannotEnterOnTeamBecauseAlreadyIsInTheTeam = 'PlayerCannotEnterOnTeamBecauseAlreadyIsInTheTeam',
+  PlayerCannotEnterOnTeamBecauseIsFull = 'PlayerCannotEnterOnTeamBecauseIsFull',
+  PlayerCannotSelectThisRoleBecauseItsAlreadyPicked = 'PlayerCannotSelectThisRoleBecauseItsAlreadyPicked',
+}

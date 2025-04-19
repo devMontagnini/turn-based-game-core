@@ -5,9 +5,18 @@ import { ActionSchedulingConfiguration } from './action.scheduling.configuration
 
 export class ActionScheduling extends Configurable<ActionSchedulingConfiguration> {
 
-  private scheduledAt!: number; 
-  private scheduleTimeout?: NodeJS.Timeout;
-  private status: ActionSchedulingStatus = ActionSchedulingStatus.Pending;
+  private _scheduledAt!: number; 
+  private _scheduleTimeout?: NodeJS.Timeout;
+
+  private _waitingMilliSecondsToExecute!: number;
+  get waitingMilliSecondsToExecute(): number {
+    return this._waitingMilliSecondsToExecute;
+  }
+
+  private _status: ActionSchedulingStatus = ActionSchedulingStatus.Pending;
+  get status(): ActionSchedulingStatus {
+    return this._status;
+  }
   
   constructor (configuration: ActionSchedulingConfiguration) {
     super(configuration);
@@ -15,22 +24,23 @@ export class ActionScheduling extends Configurable<ActionSchedulingConfiguration
   }
 
   private schedule(milliSecondsTimeToWait: number): void {
-    this.scheduledAt = Date.now();
-    this.status = ActionSchedulingStatus.Pending;
-    this.scheduleTimeout = setTimeout(() => this.execute(), milliSecondsTimeToWait ?? 0);
+    this._scheduledAt = Date.now();
+    this._status = ActionSchedulingStatus.Pending;
+    this._waitingMilliSecondsToExecute = milliSecondsTimeToWait;
+    this._scheduleTimeout = setTimeout(() => this.execute(), milliSecondsTimeToWait ?? 0);
   }
 
   private execute(): void {
     try {
       this.updateStatus(ActionSchedulingStatus.Started);
 
-      const { checkConditionBeforeExecute } = this.configuration;
+      const { checkConditionBeforeExecute } = this._configuration;
       if (checkConditionBeforeExecute && !checkConditionBeforeExecute()) {
         this.updateStatus(ActionSchedulingStatus.Cancelled);
         return;
       }
 
-      this.configuration.action();
+      this._configuration.action();
       this.updateStatus(ActionSchedulingStatus.Complete);
     }
     catch (error) {
@@ -40,17 +50,17 @@ export class ActionScheduling extends Configurable<ActionSchedulingConfiguration
   }
 
   private updateStatus(status: ActionSchedulingStatus, result?: any): void {
-    this.status = status;
-    this.configuration.progressCallback?.(status, result);
+    this._status = status;
+    this._configuration.progressCallback?.(status, result);
   }
 
   advanceTime(milliSeconds: number): void {
-    if (this.status !== ActionSchedulingStatus.Pending) {
+    if (this._status !== ActionSchedulingStatus.Pending) {
       return; 
     }
 
-    clearInterval(this.scheduleTimeout);
-    const advancedScheduleInterval = (Date.now() - this.scheduledAt) - milliSeconds;
+    clearInterval(this._scheduleTimeout);
+    const advancedScheduleInterval = (Date.now() - this._scheduledAt) - milliSeconds;
     const milliSecondsTimeToWait = advancedScheduleInterval > 0
       ? advancedScheduleInterval
       : 0;

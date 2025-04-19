@@ -1,3 +1,3 @@
-export class Configurable<T> {
-  constructor(protected readonly configuration: T) { }
+export abstract class Configurable<T> {
+  constructor(protected readonly _configuration: T) { }
 }

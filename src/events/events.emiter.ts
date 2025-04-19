@@ -1,8 +1,8 @@
 import { Logger } from '../base/logger';
-import { EngineEvents } from './engine.events';
 import { Configurable } from '../base/configurable';
 import { Exception } from '../exceptions/exception';
-import { EventsEmiterConfiguration } from './events.emiter.configuration';
+import { EngineEvents } from './enums/engine.events';
+import { EventsEmiterConfiguration } from './complements/events.emiter.configuration';
 
 export abstract class EventsEmiter extends Configurable<EventsEmiterConfiguration> {
 

@@ -1,5 +1,5 @@
-import { ActionSchedulingStatus } from './action.scheduling.status';
-import { NotImplementedException } from '../exceptions/not-implemented.exception';
+import { ActionSchedulingStatus } from '../enums/action.scheduling.status';
+import { NotImplementedException } from '../../exceptions/not-implemented.exception';
 
 export class ActionSchedulingConfiguration {
   readonly checkConditionBeforeExecute?: Function;

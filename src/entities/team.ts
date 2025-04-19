@@ -1,8 +1,8 @@
 import { Role } from "./role";
 import { Player } from "./player";
-import { TeamPlayer } from "./partials/team-player";
-import { AssignableEntity } from "./assignable.entity";
-import { UIConfiguration } from "./partials/ui-position";
+import { TeamPlayer } from "./complements/team-player";
+import { UIConfiguration } from "./complements/ui-position";
+import { AssignableEntity } from "./complements/assignable.entity";
 
 export class Team extends AssignableEntity<Team> {
 

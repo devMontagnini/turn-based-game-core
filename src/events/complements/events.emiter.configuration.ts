@@ -1,4 +1,4 @@
-import { EngineEvents } from "./engine.events";
+import { EngineEvents } from "../enums/engine.events";
 
 export class EventsEmiterConfiguration {
   readonly connectionId!: string;

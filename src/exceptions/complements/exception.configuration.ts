@@ -1,4 +1,4 @@
-import { ExceptionCodes } from "./exception.codes";
+import { ExceptionCodes } from "../enums/exception.codes";
 
 export class ExceptionConfiguration {
   readonly parameters?: any;

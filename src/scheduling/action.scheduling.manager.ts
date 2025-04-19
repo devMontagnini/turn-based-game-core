@@ -1,7 +1,7 @@
 import { Configurable } from '../base/configurable';
 import { ActionScheduling } from '../scheduling/action.scheduling';
-import { ActionSchedulingStatus } from '../scheduling/action.scheduling.status';
-import { ActionSchedulingManagerConfiguration } from './action.scheduling.manager.configuration';
+import { ActionSchedulingStatus } from './enums/action.scheduling.status';
+import { ActionSchedulingManagerConfiguration } from './complements/action.scheduling.manager.configuration';
 
 export class ActionSchedulingManager extends Configurable<ActionSchedulingManagerConfiguration> {
 

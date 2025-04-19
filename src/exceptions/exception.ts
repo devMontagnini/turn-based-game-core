@@ -1,6 +1,6 @@
 import { Logger } from "../base/logger";
 import { Configurable } from "../base/configurable";
-import { ExceptionConfiguration } from "./exception.configuration";
+import { ExceptionConfiguration } from "./complements/exception.configuration";
 
 export class Exception extends Configurable<ExceptionConfiguration> {
   constructor(configuration: ExceptionConfiguration) {

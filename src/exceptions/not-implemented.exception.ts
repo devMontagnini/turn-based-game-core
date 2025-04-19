@@ -1,5 +1,5 @@
 import { Exception } from "./exception";
-import { ExceptionCodes } from "./exception.codes";
+import { ExceptionCodes } from "./enums/exception.codes";
 
 export class NotImplementedException extends Exception {
   constructor(internalMessage?: string) {
